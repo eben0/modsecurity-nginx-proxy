@@ -1,13 +1,3 @@
-# ModSecurity NGINX Proxy
-
-`modsecurity-nginx-proxy` allows running multiple hostnames backed by ModSecurity.
-
-The image is a mix up of [owasp/modsecurity](https://hub.docker.com/r/owasp/modsecurity)
-and [jwilder/nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy).
-
-
-### Example using docker-compose:
-```yaml
 version: '3.9'
 
 services:
@@ -47,21 +37,3 @@ volumes:
   nginx-certs:
   nginx-vhost:
   nginx-html:
-```
-
-### Engine Core Rules Set
-The image does not include engine rules. you can grab the rules from the official CRS repo:
-```
-https://github.com/coreruleset/coreruleset/tree/v3.4/dev/rules
-```
-
-To include rules you should create  `rules.conf` file within `rules` directory:
-```apacheconf
-Include REQUEST-901-INITIALIZATION.conf
-# ...
-```
-Mount the folder:
-```yaml
-volumes:
-  - ./rules:/etc/modsecurity.d/rules
-```
