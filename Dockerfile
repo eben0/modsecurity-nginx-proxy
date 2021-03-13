@@ -1,7 +1,6 @@
-LABEL maintainer="Eyal Benatav <eyalb81@gmail.com>"
-
 FROM jwilder/nginx-proxy:0.8.0 as nginx-proxy
 FROM owasp/modsecurity:3.0.4 as modsecurity
+LABEL maintainer="Eyal Benatav <eyalb81@gmail.com>"
 
 # copy stuff from nginx-proxy
 COPY --from=nginx-proxy /etc/nginx/ /etc/nginx/
