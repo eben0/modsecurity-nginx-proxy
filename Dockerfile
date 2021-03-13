@@ -13,7 +13,7 @@ ENV DOCKER_HOST unix:///tmp/docker.sock
 ENV RULES_PATH /etc/modsecurity.d/rules
 ENV RULES_FILE ${RULES_PATH}/rules.conf
 
-RUN rm rm -rf /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/logging.conf \
+RUN rm -rf /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/logging.conf \
     # replace bash env and exec command
     && sed -i -e 's:#!/bin/bash -e::g' -e 's:etc/:/etc/:g' /docker-entrypoint.sh \
     && sed -i 's:exec "$@":\n:g' /app/docker-entrypoint.sh \
