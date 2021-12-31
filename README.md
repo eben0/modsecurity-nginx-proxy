@@ -22,7 +22,7 @@ services:
     container_name: proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./modsecurity.d/rules:/etc/modsecurity.d/rules:ro
+      - ./modsecurity.d/rules:/etc/modsecurity.d/proxy-rules:ro
       - nginx-certs:/etc/nginx/certs
       - nginx-vhost:/etc/nginx/vhost.d
       - nginx-html:/usr/share/nginx/html
@@ -63,5 +63,5 @@ Include REQUEST-901-INITIALIZATION.conf
 Mount the folder:
 ```yaml
 volumes:
-  - ./rules:/etc/modsecurity.d/rules
+  - ./rules:/etc/modsecurity.d/proxy-rules
 ```
